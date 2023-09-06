@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Perhitungan Bilangan Fibonacci</h1>
+        <p1>Masukkan angka pembatas bilangan fibonacci:</p1> <br><br>
+        <input type="number" id="angka" placeholder="Angka">
+        <button onclick="hitungFibo()">Tampilkan</button>
+
+        <br>
+
+        <p2>Hasilnya</p2>
+        <div id = "daftarfibo"></div>
+
+        <script>
+            function hitungFibo(){
+                const angka = parseInt(document.getElementById("angka").value);
+                const daftarfibo = document.getElementById("daftarfibo");
+
+                if (isNaN(angka) || angka < 1){
+                    daftarfibo.textContent ="Masukkan bilangan bernilai positif."
+                    return;
+                }
+                
+                let a = 0, b = 1;
+                const fibo = [a, b];
+
+                while ((a+b) <= angka){
+                    const bilnext = a + b;
+                    fibo.push(bilnext);
+                    a = b;
+                    b = bilnext;
+                }
+
+                daftarfibo.textContent = `Deret fibonacci sampai ${angka}: ${fibo.join(", ")}`;
+            }
+        </script>
+    </body>

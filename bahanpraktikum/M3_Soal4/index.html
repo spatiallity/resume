@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Perhitungan Bilangan Prima</h1>
+        <p1>Masukkan angka pembatas bilangan prima:</p1> <br><br>
+        <input type="number" id="angka" placeholder="Angka">
+        <button onclick="lihatprima()">Hitung</button>
+
+        <br><br>
+
+        <p2>Hasilnya</p2> 
+        <div id="daftarprima"></div>
+
+
+        <script>
+            function hitungprima (num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+            return true;
+        } 
+            function lihatprima (){
+                const angka = parseInt(document.getElementById("angka").value);
+                const daftarprima = document.getElementById("daftarprima");
+
+                if (isNaN(angka) || angka < 1) {
+                    daftarprima.textContent = "Nilai yang dimasukkan harus bernilai positif.";
+                    return;
+                }
+
+                const bilprima = [];
+                for (let i = 2; i <= angka; i++) {
+                    if (hitungprima(i)) {
+                        bilprima.push(i);
+                }
+            }
+
+                if (bilprima.length === 0) {
+                    daftarprima.textContent = "Tidak terdapat bilangan prima dalam rentang angka 0 sampai " + angka;
+                } else {
+                    daftarprima.textContent = "Bilangan prima dari 0 sampai " + angka + " adalah: " + bilprima.join(", ");
+                }
+            }                      
+        </script>
+    </body>
+</html>

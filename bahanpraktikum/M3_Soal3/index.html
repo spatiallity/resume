@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Validasi Nama dan Umur</h1>
+
+        <p1>Masukkan nama dan umur Anda</p1>
+        <br><br>
+        <input type="text" id="nama" placeholder="Nama">
+        <br><br>
+        <input type="text" id="umur" placeholder="Umur">
+        <br> <br>
+        <button onclick="validasi()">Klik</button>
+        <p id="hasil"></p>
+
+        <script>
+            function validasi() {
+                const umur = document.getElementById("umur").value;
+                const nama = document.getElementById("nama").value;
+                const resultElement = document.getElementById("hasil");
+                if (nama === "") {
+                    resultElement.textContent = "Masukkan nama Anda!";
+                }
+                else {
+                    if (umur < 5 && umur > 0) {
+                    resultElement.textContent = "Anda masih bayi";
+                    }
+                    else if (umur >=6 && umur<=15)  {
+                    resultElement.textContent = "Anda masih anak-anak";
+                    }
+                    else if (umur >=16 && umur<=30)  {
+                    resultElement.textContent = "Anda masih remaja";
+                    }
+                    else if (umur >=31 && umur<=60)  {
+                    resultElement.textContent = "Anda sudah dewasa";
+                    }
+                    else if (umur >=61)  {
+                    resultElement.textContent = "Anda sudah tua";
+                    }
+                    else {
+                    resultElement.textContent = "Anda Game Over";
+                    }
+                }
+                
+            }
+        </script>
+
+    </body>
+</html>

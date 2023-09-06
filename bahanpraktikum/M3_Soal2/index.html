@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Validasi Input</h1>
+
+        <p1>Masukkan nama, password, dan alamat email Anda:</p1>
+        <br>
+        <input type="text" id="uname" placeholder="Username">
+        <br>
+        <input type="text" id="email" placeholder="E-mail">
+        <br>
+        <input type="text" id="pass" placeholder="Password">
+        <br>
+        <button onclick="validasi()">Klik</button>
+        <p id="hasil"></p>
+
+        <script>
+            function validasi() {
+                const username = document.getElementById("uname").value;
+                const password = document.getElementById("pass").value;
+                const resultElement = document.getElementById("hasil");
+    
+                // Define the expected username and password
+                const expectedUsername = "coba";
+                const expectedPassword = "sss";
+    
+                if (username === expectedUsername && password === expectedPassword) {
+                    resultElement.textContent = "Berhasil masuk!";
+                } else {
+                   // resultElement.textContent = "Password salah. Coba lagi!"
+                   alert("Username atau password salah. Silakan coba lagi.");
+                }
+            }
+        </script>
+
+    </body>
+</html>
